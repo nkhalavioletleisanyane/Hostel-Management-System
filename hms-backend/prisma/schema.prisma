@@ -1,0 +1,129 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  role      String   // 'admin' or 'student'
+  studentId String?  // Reference to Student if role is 'student'
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Student {
+  id               String       @id @default(uuid())
+  studentId        String       @unique
+  firstName        String
+  lastName         String
+  email            String       @unique
+  phone            String
+  department       String?
+  rollNumber       String?
+  course           String
+  semester         String
+  roomId           String?
+  roomNumber       String?
+  blockName        String?
+  checkInDate      DateTime?
+  emergencyContact String
+  emergencyPhone   String
+  status           String       // 'active' | 'inactive' | 'fee-due' | 'unassigned'
+  avatar           String       // initials
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+
+  allocations      Allocation[]
+}
+
+model Room {
+  id           String       @id @default(uuid())
+  roomNumber   String
+  block        String       // 'A' | 'B' | 'C' | 'D'
+  blockLabel   String
+  floor        Int
+  totalBeds    Int
+  occupiedBeds Int          @default(0)
+  roomType     String       // 'Single' | 'Double' | 'Triple' | 'Dormitory'
+  status       String       // 'available' | 'full' | 'maintenance'
+  gender       String       // 'Boys' | 'Girls'
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  allocations  Allocation[]
+
+  @@unique([roomNumber, block])
+}
+
+model Allocation {
+  id           String    @id @default(uuid())
+  allocationId String    @unique
+  studentId    String
+  roomId       String
+  checkInDate  DateTime
+  checkOutDate DateTime?
+  status       String    // 'active' | 'completed' | 'pending'
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  student      Student   @relation(fields: [studentId], references: [id])
+  room         Room      @relation(fields: [roomId], references: [id])
+}
+
+model FeeInvoice {
+  id             String    @id @default(uuid())
+  invoiceNo      String    @unique
+  studentId      String
+  studentName    String
+  category       String    // 'Hostel Sem Fee' | 'Mess Fee' | etc.
+  amount         Float
+  issueDate      DateTime
+  dueDate        DateTime
+  paidDate       DateTime?
+  paidAmount     Float?
+  paymentMode    String?
+  transactionRef String?
+  status         String    // 'paid' | 'pending' | 'overdue'
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model Complaint {
+  id           String    @id @default(uuid())
+  ticketId     String    @unique
+  studentId    String
+  studentName  String
+  roomNumber   String
+  category     String    // 'Electrical' | 'Plumbing' | etc.
+  description  String
+  priority     String    // 'Low' | 'Medium' | 'High'
+  status       String    // 'open' | 'in-progress' | 'resolved'
+  raisedDate   DateTime
+  resolvedDate DateTime?
+  remarks      String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model Notice {
+  id            String    @id @default(uuid())
+  title         String
+  content       String
+  priority      String    // 'urgent' | 'important' | 'general'
+  publishedBy   String
+  publishedDate DateTime
+  expiryDate    DateTime
+  target        String
+  pinned        Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}

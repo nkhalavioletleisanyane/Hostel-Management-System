@@ -1,0 +1,157 @@
+/* ============================================================
+   Sidebar — Redesigned with smooth hide/unhide (< and >) toggle
+   ============================================================ */
+.sidebar {
+  width: var(--sidebar-w);
+  background: var(--clr-surface);
+  position: fixed; top: var(--nav-h); bottom: 0; left: 0;
+  overflow-y: auto; padding: 20px 12px;
+  display: flex; flex-direction: column; gap: 2px;
+  border-right: 1px solid var(--clr-border);
+  z-index: 100;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background var(--transition-slow),
+              border-color var(--transition-slow);
+  will-change: transform;
+}
+
+.sidebar.collapsed {
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+/* Header section with inline collapse button */
+.sidebar-section {
+  padding: 18px 12px 6px; font-size: .68rem;
+  font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--clr-text-muted);
+  margin-top: 4px;
+}
+
+.sidebar-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-header-collapse-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--clr-text-muted);
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-xs);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 0;
+}
+
+.sidebar-header-collapse-btn:hover {
+  background: var(--clr-primary-pale);
+  color: var(--clr-primary);
+  border-color: var(--clr-border);
+}
+
+/* Floating edge toggle button with < (hide) and > (unhide) */
+.sidebar-edge-toggle {
+  position: fixed;
+  top: calc(var(--nav-h) + 16px);
+  left: calc(var(--sidebar-w) - 14px);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 105;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform var(--transition-fast),
+              background var(--transition),
+              border-color var(--transition),
+              color var(--transition),
+              box-shadow var(--transition);
+  padding: 0;
+}
+
+.sidebar-edge-toggle:hover {
+  background: var(--clr-primary);
+  border-color: var(--clr-primary);
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+
+.sidebar-edge-toggle:active {
+  transform: scale(0.92);
+}
+
+.sidebar-edge-toggle.collapsed {
+  left: 12px;
+  background: var(--clr-surface);
+  border-color: var(--clr-primary);
+  color: var(--clr-primary);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+}
+
+.sidebar-edge-toggle.collapsed:hover {
+  background: var(--clr-primary);
+  border-color: var(--clr-primary);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+}
+
+/* Navigation items */
+.sidebar-link {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 14px; color: var(--clr-text-secondary);
+  font-size: .875rem; font-weight: 500;
+  transition: all var(--transition); cursor: pointer;
+  border: none; width: 100%;
+  background: none; font-family: var(--font-sans);
+  text-align: left; border-radius: var(--radius-sm);
+  position: relative;
+}
+.sidebar-link:hover {
+  background: var(--clr-primary-pale);
+  color: var(--clr-text);
+}
+.sidebar-link.active {
+  background: linear-gradient(135deg,
+    var(--clr-primary-pale),
+    var(--clr-accent-pale)
+  );
+  color: var(--clr-primary);
+  font-weight: 600;
+}
+.sidebar-link.active::before {
+  content: '';
+  position: absolute; left: 0; top: 6px; bottom: 6px;
+  width: 3px; border-radius: 0 3px 3px 0;
+  background: linear-gradient(to bottom, var(--clr-primary), var(--clr-accent));
+}
+
+.sidebar-logout {
+  color: var(--clr-text-muted); margin-top: auto;
+}
+.sidebar-logout:hover {
+  color: var(--clr-danger);
+  background: var(--clr-danger-pale);
+}
+
+.s-icon {
+  font-size: 1rem; width: 20px; text-align: center;
+  display: flex; align-items: center; justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .sidebar-edge-toggle { display: none; }
+}
