@@ -4,7 +4,7 @@ Hostel Management System REST API server implementing authentication, room alloc
 
 ## Available Scripts
 
-- `npm start` or `npm run dev`: Starts the Express API server on `http://localhost:5000`
+- `npm start` or `npm run dev`: Starts the Express API server on `http://localhost:5001`
 
 ## Endpoints
 

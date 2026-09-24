@@ -9,7 +9,7 @@
 export PATH="/usr/local/bin:/opt/homebrew/bin:/usr/local/nodejs/bin:$PATH"
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-BACKEND_PORT=5000
+BACKEND_PORT=5001
 FRONTEND_PORT=5173
 
 # Colors for terminal output

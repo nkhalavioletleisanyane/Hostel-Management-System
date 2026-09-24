@@ -22,8 +22,8 @@ If port `5173` (Frontend) or port `5000` (Backend) is currently busy or locked b
 | Service | Technology | URL / Endpoint |
 |---|---|---|
 | **Frontend** | React 18, TypeScript, Vite, Recharts, Lucide Icons | [http://localhost:5173](http://localhost:5173) |
-| **Backend API** | Node.js, Express.js, CORS, RESTful Endpoints | [http://localhost:5000](http://localhost:5000) |
-| **API Health** | Express JSON Status | [http://localhost:5000/api/health](http://localhost:5000/api/health) |
+| **Backend API** | Node.js, Express.js, CORS, RESTful Endpoints | [http://localhost:5001](http://localhost:5001) |
+| **API Health** | Express JSON Status | [http://localhost:5001/api/health](http://localhost:5001/api/health) |
 
 ---
 
