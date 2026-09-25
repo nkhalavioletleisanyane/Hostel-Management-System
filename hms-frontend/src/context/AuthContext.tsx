@@ -5,7 +5,7 @@ interface AuthContextType {
   user: User | null;
   role: UserRole | null;
   isAuthenticated: boolean;
-  login: (userId: string, password: string) => boolean;
+  login: (userId: string, password: string) => User | null;
   logout: () => void;
   updateUser: (updatedUser: Partial<User>) => void;
 }
@@ -33,7 +33,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     return stored ? JSON.parse(stored) : null;
   });
 
-  const login = (userId: string, password: string): boolean => {
+  const login = (userId: string, password: string): User | null => {
     const normalizedId = userId.trim().toLowerCase();
 
     // 1. Check fixed demo accounts
@@ -41,7 +41,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     if (entry && entry.password === password) {
       setUser(entry.user);
       localStorage.setItem('hms_user', JSON.stringify(entry.user));
-      return true;
+      return entry.user;
     }
 
     // 2. Check dynamically registered accounts
@@ -53,7 +53,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         if (match && match.password === password) {
           setUser(match.user);
           localStorage.setItem('hms_user', JSON.stringify(match.user));
-          return true;
+          return match.user;
         }
       }
     } catch (e) {
@@ -81,14 +81,14 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           };
           setUser(studentUser);
           localStorage.setItem('hms_user', JSON.stringify(studentUser));
-          return true;
+          return studentUser;
         }
       }
     } catch (e) {
       console.error('Error reading student data for login:', e);
     }
 
-    return false;
+    return null;
   };
 
   const logout = () => {

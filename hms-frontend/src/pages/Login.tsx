@@ -3,13 +3,12 @@ import { useNavigate, Link } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
 import WaveBackground from '../components/ui/WaveBackground';
 import { useAuth } from '../context/AuthContext';
-import { User, Lock, Eye, EyeOff, ArrowLeft, ShieldCheck, GraduationCap, AlertCircle } from 'lucide-react';
+import { User, Lock, Eye, EyeOff, ArrowLeft, AlertCircle } from 'lucide-react';
 import '../styles/login.css';
 
 const Login: React.FC = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<'admin' | 'student'>('admin');
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -21,10 +20,14 @@ const Login: React.FC = () => {
     setError('');
     setLoading(true);
     await new Promise(r => setTimeout(r, 350));
-    const success = login(userId.trim(), password.trim());
+    const user = login(userId.trim(), password.trim());
     setLoading(false);
-    if (success) {
-      navigate('/dashboard');
+    if (user) {
+      if (user.role === 'admin') {
+        navigate('/dashboard');
+      } else {
+        navigate('/students');
+      }
     } else {
       setError('Invalid credentials. Please check your user ID and password.');
     }
@@ -43,25 +46,7 @@ const Login: React.FC = () => {
               <span>HMS</span>
             </Link>
             <p className="login-subtitle">Hostel Management System</p>
-            <h2 className="login-welcome-title">Welcome back</h2>
-          </div>
-
-          {/* Role Tabs */}
-          <div className="login-tabs">
-            <button
-              type="button"
-              className={`login-tab${activeTab === 'admin' ? ' active' : ''}`}
-              onClick={() => { setActiveTab('admin'); setError(''); }}
-            >
-              <ShieldCheck size={16} /> Admin / Warden
-            </button>
-            <button
-              type="button"
-              className={`login-tab${activeTab === 'student' ? ' active' : ''}`}
-              onClick={() => { setActiveTab('student'); setError(''); }}
-            >
-              <GraduationCap size={16} /> Student
-            </button>
+            <h2 className="login-welcome-title">Sign In</h2>
           </div>
 
           <form onSubmit={handleSubmit}>
