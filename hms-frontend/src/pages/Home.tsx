@@ -96,7 +96,6 @@ const Home: React.FC = () => (
         </div>
         <div className="footer-bottom">
           <span>© 2026 Hostel Management System. All Rights Reserved.</span>
-          <span>React · TypeScript · Node.js · PostgreSQL</span>
         </div>
       </div>
     </footer>
