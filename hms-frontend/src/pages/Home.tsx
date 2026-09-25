@@ -33,7 +33,6 @@ const Home: React.FC = () => (
         </p>
         <div className="hero-cta fade-in">
           <Link to="/login" className="btn btn-primary btn-lg">Get Started →</Link>
-          <Link to="/dashboard" className="btn btn-ghost btn-lg">View Dashboard</Link>
         </div>
         <div className="hero-stats fade-in">
           <div className="stat-card"><span className="stat-num">80%</span><span className="stat-label">Less Paperwork</span></div>
