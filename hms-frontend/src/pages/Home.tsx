@@ -23,10 +23,6 @@ const Home: React.FC = () => (
     {/* HERO */}
     <section className="hero-section">
       <div className="container">
-        <div className="hero-badge fade-in">
-          <span className="badge-dot" />
-          Web-Based Platform &middot; React + TypeScript
-        </div>
         <h1 className="hero-title fade-in">
           Hostel Management<br />
           <span className="hero-accent">System</span>
