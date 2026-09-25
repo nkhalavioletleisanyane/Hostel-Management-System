@@ -13,9 +13,13 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const DEMO_USERS: Record<string, { password: string; user: User }> = {
+  violet: {
+    password: 'violet123',
+    user: { id: 'admin1', name: 'Violet Leisanyane', email: 'violet@hms.edu', role: 'admin' },
+  },
   admin: {
-    password: 'admin123',
-    user: { id: 'admin1', name: 'Warden Kamath', email: 'warden@hms.edu', role: 'admin' },
+    password: 'violet123',
+    user: { id: 'admin1', name: 'Violet Leisanyane', email: 'violet@hms.edu', role: 'admin' },
   },
   student: {
     password: 'stu123',

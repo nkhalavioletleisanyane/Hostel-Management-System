@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
 import WaveBackground from '../components/ui/WaveBackground';
-import { User, Lock, Eye, EyeOff, ArrowLeft, ShieldCheck, GraduationCap } from 'lucide-react';
+import { User, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 import '../styles/login.css';
 
 const Signup: React.FC = () => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<'admin' | 'student'>('student');
   const [name, setName] = useState('');
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
@@ -33,15 +32,14 @@ const Signup: React.FC = () => {
           id: `u_${Date.now()}`,
           name: cleanName,
           email,
-          role: activeTab,
-          studentId: activeTab === 'student' ? `STU-2024-${String(Math.floor(Math.random() * 800) + 100)}` : undefined,
+          role: 'student',
+          studentId: `STU-2024-${String(Math.floor(Math.random() * 800) + 100)}`,
         },
       };
       localStorage.setItem('hms_registered_users', JSON.stringify(registeredMap));
 
-      // 2. If student, ensure a record is added to hms_students_data
-      if (activeTab === 'student') {
-        const studentId = registeredMap[cleanUserId].user.studentId;
+      // 2. Ensure student record is added to hms_students_data
+      const studentId = registeredMap[cleanUserId].user.studentId;
         const nameParts = cleanName.split(' ');
         const firstName = nameParts[0] || 'Student';
         const lastName = nameParts.slice(1).join(' ') || 'User';
@@ -75,7 +73,6 @@ const Signup: React.FC = () => {
           studentsList.unshift(newStudent);
           localStorage.setItem('hms_students_data', JSON.stringify(studentsList));
         }
-      }
     } catch (err) {
       console.error('Error saving signup data:', err);
     }
@@ -98,25 +95,7 @@ const Signup: React.FC = () => {
               <span>HMS</span>
             </Link>
             <p className="login-subtitle">Hostel Management System</p>
-            <h2 className="login-welcome-title">Create your account</h2>
-          </div>
-
-          {/* Role Tabs */}
-          <div className="login-tabs">
-            <button
-              type="button"
-              className={`login-tab${activeTab === 'student' ? ' active' : ''}`}
-              onClick={() => setActiveTab('student')}
-            >
-              <GraduationCap size={16} /> Student
-            </button>
-            <button
-              type="button"
-              className={`login-tab${activeTab === 'admin' ? ' active' : ''}`}
-              onClick={() => setActiveTab('admin')}
-            >
-              <ShieldCheck size={16} /> Admin / Warden
-            </button>
+            <h2 className="login-welcome-title">Student Registration</h2>
           </div>
 
           <form onSubmit={handleSubmit}>

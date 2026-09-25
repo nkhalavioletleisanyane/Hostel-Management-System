@@ -97,15 +97,15 @@ app.post('/api/auth/login', (req, res) => {
   }
 
   // Admin login check
-  if (username.toLowerCase() === 'admin' || username.toLowerCase() === 'admin@hostel.edu') {
-    if (password === 'admin123') {
+  if (username.toLowerCase() === 'violet' || username.toLowerCase() === 'admin' || username.toLowerCase() === 'admin@hostel.edu') {
+    if (password === 'violet123') {
       return res.json({
         token: 'jwt-mock-admin-token-' + Date.now(),
         user: {
           id: 'adm-1',
-          name: 'Dr. Sarah Jenkins',
+          name: 'Violet Leisanyane',
           role: 'admin',
-          email: 'admin@hostel.edu',
+          email: 'violet@hms.edu',
           hostelName: 'Oakridge International Campus Hostel'
         }
       });

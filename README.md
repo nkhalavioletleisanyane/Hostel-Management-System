@@ -31,7 +31,7 @@ If port `5173` (Frontend) or port `5000` (Backend) is currently busy or locked b
 
 | Role | Username / Identifier | Password | Access Rights |
 |---|---|---|---|
-| **Hostel Administrator** | `admin` (or `admin@hostel.edu`) | `admin123` | Full access to Dashboard KPIs, Student Registry, Room Allocation, Fee Collection, Complaints Resolution, Visitors, Notices |
+| **Hostel Administrator** | `violet` (or `admin`) | `violet123` | Full access to Dashboard KPIs, Student Registry, Room Allocation, Fee Collection, Complaints Resolution, Visitors, Notices |
 | **Resident Student** | `student` (or `MCA202401`) | `stu123` | Student portal, My Room details, Fee status, File Complaints, View Notices |
 
 ---

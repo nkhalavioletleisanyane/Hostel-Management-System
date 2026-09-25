@@ -143,7 +143,7 @@ echo -e "  ${BOLD}⚙️  Backend REST API:${NC}   ${CYAN}http://localhost:${BAC
 echo -e "  ${BOLD}🏥 Health Check:${NC}       ${CYAN}http://localhost:${BACKEND_PORT}/api/health${NC}"
 echo ""
 echo -e "  ${BOLD}🔑 Demo Credentials:${NC}"
-echo -e "     • ${BOLD}Admin Portal:${NC}   Username: ${YELLOW}admin${NC}     | Password: ${YELLOW}admin123${NC}"
+echo -e "     • ${BOLD}Admin Portal:${NC}   Username: ${YELLOW}violet${NC}    | Password: ${YELLOW}violet123${NC}"
 echo -e "     • ${BOLD}Student Portal:${NC} Username: ${YELLOW}student${NC}   | Password: ${YELLOW}stu123${NC}"
 echo ""
 echo -e "  ${BOLD}Press [Ctrl+C] anytime to stop both servers.${NC}"
