@@ -117,7 +117,7 @@
   color: rgba(255, 255, 255, 0.65);
 }
 
-.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 60px; }
+.hero-cta { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 60px; }
 
 .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 640px; }
 .stat-card {
