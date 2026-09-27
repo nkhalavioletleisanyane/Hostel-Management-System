@@ -1,0 +1,92 @@
+/* HMS Modern Logo Styles */
+
+.hms-logo-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  user-select: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.hms-logo-brand:hover .hms-logo-icon-wrapper {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+}
+
+.hms-logo-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(99, 102, 241, 0.28);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.hms-logo-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hms-logo-text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.15;
+}
+
+.hms-logo-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hms-brand-name {
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--clr-text, #0f172a) 40%, var(--clr-primary, #6366f1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+[data-theme='dark'] .hms-brand-name {
+  background: linear-gradient(135deg, #ffffff 40%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hms-brand-subtitle {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--clr-text-muted, #64748b);
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+
+/* Sizing variations */
+.hms-logo-brand.size-sm .hms-brand-name {
+  font-size: 1.15rem;
+}
+
+.hms-logo-brand.size-md .hms-brand-name {
+  font-size: 1.35rem;
+}
+
+.hms-logo-brand.size-lg .hms-brand-name {
+  font-size: 1.6rem;
+}
+
+.hms-logo-brand.size-lg .hms-brand-subtitle {
+  font-size: 0.82rem;
+}
+
+.hms-logo-brand.size-xl .hms-brand-name {
+  font-size: 2rem;
+}

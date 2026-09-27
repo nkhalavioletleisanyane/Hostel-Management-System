@@ -1,0 +1,51 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fav-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="45%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+    <linearGradient id="fav-accent" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <linearGradient id="fav-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+  </defs>
+
+  <rect x="1.5" y="1.5" width="45" height="45" rx="12" fill="url(#fav-bg)" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1.2" />
+
+  <path d="M10 37.5H38C38.83 37.5 39.5 36.83 39.5 36C39.5 35.17 38.83 34.5 38 34.5H10C9.17 34.5 8.5 35.17 8.5 36C8.5 36.83 9.17 37.5 10 37.5Z" fill="white" fill-opacity="0.85" />
+
+  <!-- Left Wing -->
+  <path d="M11 20.5C11 19.95 11.45 19.5 12 19.5H19V34.5H11V20.5Z" fill="white" fill-opacity="0.95" />
+  <path d="M10.5 20.5L19 14.5V19.5H11L10.5 20.5Z" fill="url(#fav-accent)" />
+
+  <!-- Right Wing -->
+  <path d="M29 20.5C29 19.95 29.45 19.5 30 19.5H37V34.5H29V20.5Z" fill="white" fill-opacity="0.95" />
+  <path d="M37.5 20.5L29 14.5V19.5H37L37.5 20.5Z" fill="url(#fav-accent)" />
+
+  <!-- Center Tower -->
+  <path d="M19 15.5C19 14.67 19.67 14 20.5 14H27.5C28.33 14 29 14.67 29 15.5V34.5H19V15.5Z" fill="white" />
+  <path d="M24 8.5L18.5 14.5H29.5L24 8.5Z" fill="url(#fav-accent)" />
+
+  <!-- Portal -->
+  <path d="M21.5 34.5V26.5C21.5 25.12 22.62 24 24 24C25.38 24 26.5 25.12 26.5 26.5V34.5H21.5Z" fill="#4338ca" />
+  <path d="M22.5 34.5V27.5C22.5 26.67 23.17 26 24 26C24.83 26 25.5 26.67 25.5 27.5V34.5H22.5Z" fill="url(#fav-gold)" />
+
+  <!-- Windows -->
+  <rect x="13" y="22" width="4" height="2.5" rx="0.6" fill="#6366f1" />
+  <rect x="13" y="26.5" width="4" height="2.5" rx="0.6" fill="#6366f1" />
+  <rect x="13" y="31" width="4" height="2.5" rx="0.6" fill="#6366f1" />
+
+  <rect x="31" y="22" width="4" height="2.5" rx="0.6" fill="#6366f1" />
+  <rect x="31" y="26.5" width="4" height="2.5" rx="0.6" fill="#6366f1" />
+  <rect x="31" y="31" width="4" height="2.5" rx="0.6" fill="#6366f1" />
+
+  <rect x="22" y="17" width="4" height="3.5" rx="0.8" fill="#38bdf8" />
+
+  <!-- Beacon Star -->
+  <path d="M24 5.5L24.8 7.3L26.6 8.1L24.8 8.9L24 10.7L23.2 8.9L21.4 8.1L23.2 7.3L24 5.5Z" fill="url(#fav-gold)" />
+</svg>

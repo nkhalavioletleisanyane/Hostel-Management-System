@@ -1,0 +1,49 @@
+/* ============================================================
+   Rooms — Redesigned with theme-aware tiles
+   ============================================================ */
+.room-legend {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 16px; align-items: center;
+  font-size: .82rem; font-weight: 600; color: var(--clr-text-muted);
+}
+.legend-item { display: flex; align-items: center; gap: 6px; }
+.legend-item::before {
+  content: ''; display: inline-block;
+  width: 14px; height: 14px; border-radius: 4px;
+}
+.legend-full::before       { background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent)); }
+.legend-vacant::before     { border: 2px solid var(--clr-primary-light); background: transparent; }
+.legend-partial::before    { border: 1.5px solid var(--clr-border); background: var(--clr-surface); }
+.legend-maintenance::before{ background: var(--clr-warning-pale); border: 1.5px solid var(--clr-warning); }
+
+.room-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 14px; margin-bottom: 8px;
+}
+.room-tile {
+  background: var(--clr-surface); border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-md); padding: 18px;
+  cursor: pointer;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-xs);
+}
+.room-tile:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.room-tile.full {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent));
+}
+.room-tile.full .room-tile-label { color: rgba(255,255,255,.7); }
+.room-tile.full .room-tile-num   { color: #fff; }
+.room-tile.vacant { border-color: var(--clr-primary-light); }
+.room-tile.maintenance {
+  border-color: var(--clr-warning);
+  background: var(--clr-warning-pale);
+}
+.room-tile-num { font-size: 1.2rem; font-weight: 800; color: var(--clr-text); }
+.room-tile-label { font-size: .72rem; color: var(--clr-text-muted); font-weight: 500; margin-top: 4px; }
+.room-tile-beds { display: flex; gap: 4px; margin-top: 10px; flex-wrap: wrap; }
+.bed-dot { width: 10px; height: 10px; border-radius: var(--radius-full); }
+.bed-dot.taken { background: var(--clr-primary); }
+.bed-dot.free  { background: var(--clr-primary-pale); border: 1px solid var(--clr-primary-light); }
+.room-tile.full .bed-dot.taken { background: rgba(255,255,255,.8); }
+.room-tile.full .bed-dot.free  { background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.4); }
